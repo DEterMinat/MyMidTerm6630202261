@@ -48,13 +48,25 @@ A framework is a pre-written code structure that provides a foundation and guide
 # Install dependencies
 npm install
 
-# Start the development server
-npm start
+# For Linux server (if expo command not found):
+# Method 1: Install Expo CLI globally
+npm install -g @expo/cli
 
-# Run on different platforms
+# Method 2: Use npx (recommended)
+npx @expo/cli start --web --port 30019
+
+# Method 3: Use our custom scripts
+npm run dev          # Uses npx with port 30019
+npm run web-npx      # Uses npx with default port
+
+# Run on different platforms (if expo is installed)
 npm run android    # Android emulator
 npm run ios        # iOS simulator  
 npm run web        # Web browser
+
+# Alternative: Use bash script
+chmod +x start-web.sh
+./start-web.sh
 ```
 
 ### Backend Server

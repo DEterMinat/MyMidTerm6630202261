@@ -3,14 +3,15 @@
   "main": "expo-router/entry",
   "version": "1.0.0",
   "scripts": {
-    "start": "expo start",
-    "dev": "expo start --web",
+    "start": "npx expo start",
+    "dev": "npx expo start --web --port 30019",
     "serve": "npx serve -s dist -l 30019",
+    "web-npx": "npx @expo/cli start --web",
     "reset-project": "node ./scripts/reset-project.js",
-    "android": "expo start --android",
-    "ios": "expo start --ios",
-    "web": "expo start --web",
-    "lint": "expo lint"
+    "android": "npx expo start --android",
+    "ios": "npx expo start --ios",
+    "web": "npx expo start --web",
+    "lint": "npx expo lint"
   },
   "dependencies": {
     "@expo/vector-icons": "^14.1.0",
