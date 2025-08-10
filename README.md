@@ -1,50 +1,171 @@
-# Welcome to your Expo app 👋
+# Midterm Exam - Internet Programming
+## Student: Tanakit
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+This project contains the preparation materials for the Internet Programming midterm exam.
 
-## Get started
-
-1. Install dependencies
-
-   ```bash
-   npm install
-   ```
-
-2. Start the app
-
-   ```bash
-   npx expo start
-   ```
-
-In the output, you'll find options to open the app in a
-
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
+## Project Structure
+```
+MyMidTerm6630202261/
+├── app/
+│   ├── (tabs)/
+│   │   ├── index.tsx          # Home screen
+│   │   ├── explore.tsx        # Explore screen 
+│   │   └── inventory.tsx      # Product inventory screen
+│   └── _layout.tsx
+├── BACKEND/
+│   ├── server.js              # Express.js backend server
+│   └── package.json           # Backend dependencies
+├── Tanakit_namecard.json   # User profile JSON
+├── Tanakit_inventory.json  # Products inventory JSON
+└── README.md
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+## Part A: Theory & Concepts
 
-## Learn more
+### 1. Framework
+A framework is a pre-written code structure that provides a foundation and guidelines for building applications.
 
-To learn more about developing your project with Expo, look at the following resources:
+### 2. React Native vs Flutter
+| Feature | React Native | Flutter |
+|---------|-------------|---------|
+| Language | JavaScript/TypeScript | Dart |
+| Platforms | iOS, Android, Web | iOS, Android, Web, Desktop |
+| Performance | Good | Excellent |
+| Learning Curve | Easier (familiar JS) | Steeper (new language) |
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+### 3. Frontend vs Backend
+- **Frontend**: User interface (HTML, CSS, React Native components)
+- **Backend**: Server logic (Node.js, Express.js, databases)
 
-## Join the community
+### 4. JSON Files Created
+- `Tanakit_namecard.json` - User profile information
+- `Tanakit_inventory.json` - Product inventory with 3 items
 
-Join our community of developers creating universal apps.
+## Part B: Practical Commands & Backend
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+### Running the React Native App
+```bash
+# Install dependencies
+npm install
+
+# Start the development server
+npm start
+
+# Run on different platforms
+npm run android    # Android emulator
+npm run ios        # iOS simulator  
+npm run web        # Web browser
+```
+
+### Backend Server
+```bash
+# Navigate to backend folder
+cd BACKEND
+
+# Install backend dependencies
+npm install
+
+# Start the Express.js server
+npm start
+```
+
+The backend server runs on `http://nindam.ddns.net:9678` with endpoints:
+- `GET /` - Welcome message
+- `GET /api/products` - Fetch products from JSON
+- `GET /api/namecard` - Fetch user profile
+
+## Part C: Frontend React Native Code Fix
+
+### Key imports needed:
+```typescript
+import React, { useState, useEffect } from 'react';
+import { ActivityIndicator, FlatList } from 'react-native';
+```
+
+### Fetch implementation:
+```typescript
+const response = await fetch('http://nindam.ddns.net:9678/api/products');
+```
+
+### FlatList keyExtractor:
+```typescript
+<FlatList
+  data={products}
+  keyExtractor={(item) => item.id}
+  renderItem={renderProduct}
+/>
+```
+
+## Part D: CSS & Styling
+
+### Button Styles
+```typescript
+backgroundColor: '#007AFF'  // Sets button background color
+borderRadius: 12           // Rounds button corners
+```
+
+### Shadow Properties for Cards
+```typescript
+shadowColor: '#000'        // Shadow color
+shadowOffset: {            // Shadow position
+  width: 0,
+  height: 2,
+}
+shadowOpacity: 0.1        // Shadow transparency
+shadowRadius: 4           // Shadow blur radius
+elevation: 3              // Android shadow depth
+```
+
+### Header Styling
+```typescript
+backgroundColor: '#007AFF'     // Header background color
+borderBottomWidth: 1          // Bottom border thickness
+borderBottomColor: '#e0e0e0'  // Bottom border color
+```
+
+## Exam Preparation Checklist
+
+### Before Exam:
+- [ ] Upload JSON files to `/var/www/html/` on cloud server
+- [ ] Replace `localhost:3000` with actual server IP and port
+- [ ] Test API endpoints with Postman
+- [ ] Verify React Native app connects to backend
+- [ ] Practice common fixes (imports, fetch, keyExtractor)
+
+### During Exam:
+- [ ] Replace "Nindam" with your actual name in all files
+- [ ] Update server URL in fetch calls
+- [ ] Check all required imports (useState, useEffect, ActivityIndicator)
+- [ ] Verify FlatList keyExtractor uses correct property
+- [ ] Test backend API responses
+
+## Important Notes
+
+1. **JSON File Naming**: Use your actual student ID (replace Tanakit)
+2. **Server URL**: Replace `http://nindam.ddns.net:9678` with exam server details
+3. **Cloud Path**: Ensure JSON files are accessible at `/var/www/html/`
+4. **Testing**: Use Postman to verify backend APIs before frontend integration
+
+## Common Fixes for Part C
+
+### Missing Imports Fix:
+```typescript
+// Add these imports
+import React, { useState, useEffect } from 'react';
+import { ActivityIndicator } from 'react-native';
+```
+
+### Fetch URL Fix:
+```typescript
+// Replace this:
+fetch('http://__________________:_____/api/products')
+// With your server details:
+fetch('http://nindam.ddns.net:9678/api/products')
+```
+
+### Property Reference Fixes:
+- Use `item.imageUrl` not `item.image`
+- Use `item.category` not `item.type`
+- Use `item.id` for keyExtractor
+
+Good luck with your exam! 🚀
