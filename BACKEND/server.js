@@ -4,9 +4,6 @@ const axios = require('axios');
 const path = require('path');
 const fs = require('fs');
 
-// Get __dirname equivalent for CommonJS
-const __dirname = path.dirname(require.main.filename);
-
 const app = express();
 const PORT = 9678;
 
