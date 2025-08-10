@@ -81,7 +81,7 @@ npm install
 npm start
 ```
 
-The backend server runs on `http://nindam.ddns.net:9678` with endpoints:
+The backend server runs on `http://nindam.sytes.net:9678` with endpoints:
 - `GET /` - Welcome message
 - `GET /api/products` - Fetch products from JSON
 - `GET /api/namecard` - Fetch user profile
@@ -96,7 +96,7 @@ import { ActivityIndicator, FlatList } from 'react-native';
 
 ### Fetch implementation:
 ```typescript
-const response = await fetch('http://nindam.ddns.net:9678/api/products');
+const response = await fetch('http://nindam.sytes.net:9678/api/products');
 ```
 
 ### FlatList keyExtractor:
@@ -154,7 +154,7 @@ borderBottomColor: '#e0e0e0'  // Bottom border color
 ## Important Notes
 
 1. **JSON File Naming**: Use your actual student ID (replace Tanakit)
-2. **Server URL**: Replace `http://nindam.ddns.net:9678` with exam server details
+2. **Server URL**: Replace `http://nindam.sytes.net:9678` with exam server details
 3. **Cloud Path**: Ensure JSON files are accessible at `/var/www/html/`
 4. **Testing**: Use Postman to verify backend APIs before frontend integration
 
@@ -172,7 +172,7 @@ import { ActivityIndicator } from 'react-native';
 // Replace this:
 fetch('http://__________________:_____/api/products')
 // With your server details:
-fetch('http://nindam.ddns.net:9678/api/products')
+fetch('http://nindam.sytes.net:9678/api/products')
 ```
 
 ### Property Reference Fixes:

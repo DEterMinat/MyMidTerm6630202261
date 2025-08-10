@@ -32,7 +32,7 @@ app.get('/', (req, res) => {
 app.get('/api/products', async (req, res) => {
   try {
     // TODO: Replace with your actual cloud URL
-    const cloudUrl = 'http://nindam.ddns.net/var/www/html/Tanakit_inventory.json';
+    const cloudUrl = 'http://nindam.sytes.net/var/www/html/Tanakit_inventory.json';
     
     // For local testing, use local file
     const fs = require('fs');
@@ -60,7 +60,7 @@ app.get('/api/products', async (req, res) => {
 app.get('/api/namecard', async (req, res) => {
   try {
     // TODO: Replace with your actual cloud URL
-    const cloudUrl = 'http://nindam.ddns.net/var/www/html/Tanakit_namecard.json';
+    const cloudUrl = 'http://nindam.sytes.net/var/www/html/Tanakit_namecard.json';
     
     // For local testing, use local file
     const fs = require('fs');

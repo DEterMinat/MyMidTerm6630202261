@@ -29,7 +29,7 @@ export default function InventoryScreen() {
   const [refreshing, setRefreshing] = useState<boolean>(false);
 
   // TODO: Replace with your server IP and port
-  const API_URL = 'http://nindam.ddns.net:9678/api/products';
+  const API_URL = 'http://nindam.sytes.net:9678/api/products';
 
   const fetchProducts = async () => {
     try {
